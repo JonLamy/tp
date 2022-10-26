@@ -164,12 +164,14 @@ CodeConnect has features that allow you to search for tasks and contacts. The fi
 * `find m/` —  Finds tasks in the TaskList by their module
 * `findc n/` —  Finds contacts in the AddressBook by their name
 * `findc m/` —  Finds contacts in the AddressBook by their module
+* `findc ts/` —  Finds contacts in the AddressBook by a specified task
 
 Examples of command use:
 - `find n/ quiz` - Find all tasks containing the word "quiz"
 - `find m/ CS1101S` - Find all tasks belonging to CS1101S
 - `findc n/ Tan` - Find all contacts with names containing "Tan"
 - `findc m/ CS1101S` - Find all contacts taking CS1101S
+- `findc ts/ 3` - Find all contacts that take the same module that the task at index 3 belongs to
 
 ![Sample result of a find command](images/FindContactExample.png)
 
@@ -185,12 +187,13 @@ Outline of how components work together when the user enters a find command:
 6. The result of the find command is displayed to the user
 
 ![Activity diagram for execution of a findc command](images/FindContactActivityDiagram.png)
-<div style="text-align: center">Activity diagram of findc command execution</div>
+
+Activity diagram of findc command execution
 
 ![Interactions Inside the Logic Component for the `find n/ Lab 2` Command](images/FindTasksSequenceDiagram.png)
-<div style="text-align: center">Sequence diagram of find command execution</div>
-<p></p>
-<div style="text-align: center">Note: The implementation flow and the activity and sequence diagrams are similar for both the find and findc commands</div>
+Sequence diagram of find command execution
+
+Note: The implementation flow and the activity and sequence diagrams are similar for both the `find` and `findc` commands
 
 #### Design Considerations
 
@@ -208,6 +211,12 @@ Another design consideration was to make both the find commands for task and con
 This was done so that it would be easy for the user to remember what command to use when finding either contacts or tasks.
 - The only difference when finding contacts is that there is a c after the find for contacts
 - Both use the same prefixes
+
+#### Shorthand: `saveme`
+
+Users might find that they are often searching for contacts after they have already searched for a task to work on. In such cases, the command `findc ts/ 1` would be invoked by the user. To streamline the contact searching process, we provide an alias to this commonly used command called `saveme`.
+
+
 
 ### Add task feature
 

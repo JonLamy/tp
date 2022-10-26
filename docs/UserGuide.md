@@ -138,7 +138,7 @@ Examples:
 * `find n/ homework` returns `Science homework`, `Math homework`
 * `find m/ CS1101S` returns `Problem set 4`, `Reading assignment 2`
 
-#### Listing all tasks : `list`
+#### Listing all tasks: `list`
 
 Shows a list of all tasks.
 
@@ -146,6 +146,15 @@ Format: `list` /  `list time`
 
 * List displays a list of all tasks in the order of most recent task added
 * List time displays a list of all tasks in the order of nearest deadline
+
+#### Deleting all completed tasks: `clean`
+
+Deletes all tasks that are marked as complete.
+
+Format:
+`clean`
+
+* Note: This command has similar spelling to `clear`, which deletes all contacts in CodeConnect. Be careful!
 
 ### Managing contacts
 
@@ -196,11 +205,18 @@ Examples:
 Finds persons whose names contain any of the given keywords, or find persons who take a particular module.
 
 Format:
-`findc n/ {name}` `findc m/ {module}`
+`findc n/ {name}` `findc m/ {module}` `findc ts/ {task_index}`
 
 Examples:
 * `findc n/ John` returns `john`, `John Doe`
-* `findc m/ CS1231S` returns `Alex Yeoh`, `David Li`
+* `findc m/ CS1231S` returns all contacts taking CS1231S
+* `findc ts/ 3` returns all contacts taking the same module that the task at index 3 belongs to
+
+#### Searching for help even faster: `saveme`
+
+Finds all persons that can help with (taking the same module as) the first task in your currently displayed task list.
+
+Format: `saveme`
 
 #### Clearing all contacts : `clear`
 
@@ -250,7 +266,7 @@ _Details coming soon ..._
 | **Delete task**    | `del {task_index}` <br> e.g. `delete 5`                                                                                                                                       |
 | **Mark task**      | `mark {task_index}` <br> e.g. `mark 3`                                                                                                                                        |
 | **Unmark task**    | `unmark {task_index}` <br> e.g. `unmark 3`                                                                                                                                    |
-| **Find tasks**     | `find n/ {task}` <br> `find m/ {module}`<br> e.g., `find n/ homework`, <br> `find m/ CS1101S`
+| **Find tasks**     | `find n/ {task}` <br> `find m/ {module}`<br> e.g., `find n/ homework`, <br> `find m/ CS1101S`                                                                                 |
 | **List tasks**     | `list` / `list time`                                                                                                                                                          |
 | **Add contact**    | `addc {name} e/ {email} p/ {phone_number} [m/{module1} {module2}] [t/{tag1}]` <br> e.g., `addc Bob Martin e/ bobbymartini@gmail.com p/ 98765432 m/ CS1101S CS1231S t/ friend` |
 | **Clear contacts** | `clear`                                                                                                                                                                       |
@@ -258,4 +274,4 @@ _Details coming soon ..._
 | **Edit contact**   | `editc {contact_index} {field prefix + field description}` <br> e.g. `editc 2 p/91919100`                                                                                     |
 | **Find contacts**  | `findc n/ {name}` <br> `findc m/ {module}`<br> `findc ts/ {task_index}` <br> e.g., `findc /n John`, `findc /m CS1231S`, `findc ts/ 3`                                         |
 | **List contacts**  | `listc`                                                                                                                                                                       |
-| **Help**           | `help`
+| **Help**           | `help`                                                                                                                                                                        |
